@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/playerpiano05/lhsqb/src/api"
+)
 
 func main() {
-	fmt.Print("suca")
+
+	testC := newConfig()
+	r := gin.Default()
+	r.Use()
+	api.SetupRoutes(r)
+	r.Run(testC.serverAddress)
+
 }
